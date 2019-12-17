@@ -5,7 +5,6 @@ import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.KafkaHeaders;
@@ -24,7 +23,6 @@ public class MyKafkaProducer {
   @Autowired
   KafkaTemplate<String, String> kafkaTemplate;
 
-  @Bean
   public void sendDataToKafka(@RequestParam String data) {
 
     Message<String> dataToKafka = MessageBuilder.withPayload(data)
