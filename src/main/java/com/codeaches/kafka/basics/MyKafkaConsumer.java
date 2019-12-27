@@ -11,13 +11,8 @@ public class MyKafkaConsumer {
 
   Logger log = LoggerFactory.getLogger(MyKafkaConsumer.class);
 
-  @KafkaListener(topics = "${kafka.consumer.topic}")
+  @KafkaListener(topics = "${my.kafka.consumer.topic}")
   public void listen(ConsumerRecord<String, String> kafkaMessage) {
-
-    log.info(String.format("Key       = %s", kafkaMessage.key()));
-    log.info(String.format("Value     = %s", kafkaMessage.value()));
-    log.info(String.format("Topic     = %s", kafkaMessage.topic()));
-    log.info(String.format("Partition = %s", kafkaMessage.partition()));
-    log.info(String.format("Topic     = %s", kafkaMessage.topic()));
+    log.info(String.format("Received data = %s", kafkaMessage.value()));
   }
 }
